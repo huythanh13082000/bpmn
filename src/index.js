@@ -26,11 +26,6 @@ function App() {
 	const myBpmn = useRef();
 	const myPalette = useRef();
 
-	const change = () => {
-		setEncodedData("1234");
-		console.log("hihi");
-	};
-
 	function handleDownload() {
 		modelerIstance.saveXML({ format: true }, function (err, xml) {
 			if (xml) {
@@ -145,6 +140,7 @@ const Palette = styled.div`
 	width: 400px;
 	height: 95vh
 	overflow-y: scroll;
+	overflow-x: hidden;
 `;
 const Bpmn = styled.div`
 	border: 1px solid red;
