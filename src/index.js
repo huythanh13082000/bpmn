@@ -143,6 +143,8 @@ const Modeler = styled.div`
 const Palette = styled.div`
 	
 	width: 400px;
+	height: 95vh
+	overflow-y: scroll;
 `;
 const Bpmn = styled.div`
 	border: 1px solid red;
