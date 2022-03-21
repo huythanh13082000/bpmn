@@ -135,13 +135,13 @@ function App() {
 
 const Modeler = styled.div`
 	border: 5px solid black;
-	width: 95vw;
+	width: 98vw;
 	height: 95vh;
 	display: flex;
 `;
 
 const Palette = styled.div`
-	border: 1px solid violet;
+	
 	width: 25vw;
 `;
 const Bpmn = styled.div`
