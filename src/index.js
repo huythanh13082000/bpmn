@@ -142,16 +142,12 @@ const Modeler = styled.div`
 
 const Palette = styled.div`
 	
-	width: 25vw;
+	width: 400px;
 `;
 const Bpmn = styled.div`
 	border: 1px solid red;
 	width: 70vw;
 `;
-// const Pannel = styled.div`
-
-// `;
-
 const ButtonXML = styled.button`
 	position: absolute;
 	bottom: 3rem;

@@ -59,3 +59,16 @@
         .c__hide{
           display: none;
         }
+        /* chinh width input */
+        #camunda-id{
+          width: 94% !important;
+        }
+        #cam-condition-type{
+          width: 104%;
+        }
+        #bpp-select{
+          width: 104%;
+        }
+        .clear{
+          height: 26px !important;
+        }
