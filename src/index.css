@@ -72,3 +72,13 @@
         .clear{
           height: 26px !important;
         }
+        .b-act-div1{
+          display: flex;
+          justify-content: space-between;
+          padding-left: 1rem;
+        }
+
+        /* backgroudcolor */
+        .bpp-properties-panel{
+          background-color: #ffffff;
+        }

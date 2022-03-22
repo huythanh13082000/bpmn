@@ -19,12 +19,14 @@ import download from "./download";
 import BpmnColorPickerModule from "bpmn-js-color-picker";
 import "./index.css";
 import { xml } from "./xml";
+import Form from "./form";
 
 function App() {
 	const [modelerIstance, setModelerIstance] = useState(null);
 	const [encodedData, setEncodedData] = useState(null);
 	const myBpmn = useRef();
 	const myPalette = useRef();
+	const [checkForm, setCheckForm] = useState(false);
 
 	function handleDownload() {
 		modelerIstance.saveXML({ format: true }, function (err, xml) {
@@ -78,12 +80,22 @@ function App() {
 			"element.mouseup",
 		];
 
-		events.forEach(function (event) {
-			eventBus.on(event, function (e) {
-				// e.element = the model element
-				// e.gfx = the graphical element
-				console.log(event, "on", e.element.id);
-			});
+		// events.forEach(function (event) {
+		// 	eventBus.on(event, function (e) {
+		// 		// e.element = the model element
+		// 		// e.gfx = the graphical element
+		// 		console.log(event, "on", e.element);
+		// 	});
+		// });
+		eventBus.on("element.click", function (e) {
+			// e.element = the model element
+			// e.gfx = the graphical element
+			// const cct = document.getElementById("bpp-select");
+			setCheckForm(false);
+			if (e.element.type === "bpmn:SequenceFlow") {
+				setCheckForm(true);
+			}
+			console.log(e.element);
 		});
 		var elements = document.getElementsByClassName("entry");
 		Array.from(elements).map((e, index) => {
@@ -114,20 +126,14 @@ function App() {
 
 		return () => modeler.destroy();
 	}, [myBpmn, myPalette]);
-
 	return (
 		<React.Fragment>
 			<Modeler>
 				<Bpmn ref={myBpmn} />
-				<div>
+				<div style={{ overflow: "auto" }}>
 					<Palette ref={myPalette}></Palette>
-					<div id="b-act" className="c__hide">
-					<p>hihi</p>
-					</div>
-					
-					
+					<div id='b-act'>{checkForm ? <Form /> : null}</div>
 				</div>
-				
 			</Modeler>
 			<ButtonXML onClick={handleDownload}>Tải file Xml</ButtonXML>
 			<ButtonSVG onClick={handleSaveSvg}>Tải ảnh </ButtonSVG>
@@ -143,7 +149,6 @@ const Modeler = styled.div`
 `;
 
 const Palette = styled.div`
-	
 	width: 400px;
 	overflow-x: hidden;
 `;
