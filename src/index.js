@@ -119,8 +119,15 @@ function App() {
 		<React.Fragment>
 			<Modeler>
 				<Bpmn ref={myBpmn} />
-				{/* <button onClick={change}>Tesst</button> */}
-				<Palette ref={myPalette}>{/* <Pannel/> */}</Palette>
+				<div>
+					<Palette ref={myPalette}></Palette>
+					<div id="b-act" className="c__hide">
+					<p>hihi</p>
+					</div>
+					
+					
+				</div>
+				
 			</Modeler>
 			<ButtonXML onClick={handleDownload}>Tải file Xml</ButtonXML>
 			<ButtonSVG onClick={handleSaveSvg}>Tải ảnh </ButtonSVG>
@@ -138,8 +145,6 @@ const Modeler = styled.div`
 const Palette = styled.div`
 	
 	width: 400px;
-	height: 95vh
-	overflow-y: scroll;
 	overflow-x: hidden;
 `;
 const Bpmn = styled.div`
